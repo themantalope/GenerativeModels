@@ -17,13 +17,13 @@ FROM ${PYTORCH_IMAGE}
 
 LABEL maintainer="matthew.antalek@gmail.com"
 
-WORKDIR /opt/monai 
+# WORKDIR /opt/monai
 
-COPY . .
+# COPY . .
 
-RUN pip install -r requirements-dev.txt
+# RUN pip install -r requirements-dev.txt
 
-RUN pip install -e .
+# RUN pip install -e .
 
 ENV PATH=${PATH}:/opt/tools
 ENV USERNAME="monai-docker-dev"
