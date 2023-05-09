@@ -24,7 +24,7 @@ COPY requirements.txt /opt/monai/tools
 COPY requirements-dev.txt /opt/monai/tools
 COPY requirements-min.txt /opt/monai/tools
 
-# RUN pip install -r requirements-dev.txt
+RUN pip install -r requirements-dev.txt
 
 # RUN pip install -e .
 
