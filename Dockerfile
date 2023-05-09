@@ -17,17 +17,23 @@ FROM ${PYTORCH_IMAGE}
 
 LABEL maintainer="matthew.antalek@gmail.com"
 
-WORKDIR /opt/monai 
+WORKDIR /opt/monai/tools
 
-COPY . .
+COPY docker-entrypoint.sh /
+COPY requirements.txt /opt/monai/tools
+COPY requirements-dev.txt /opt/monai/tools
+COPY requirements-min.txt /opt/monai/tools
 
 RUN pip install -r requirements-dev.txt
 
-RUN pip install -e .
+# RUN pip install -e .
 
 ENV PATH=${PATH}:/opt/tools
+ENV PATH=${PATH}:/opt/monai/tools
+ENV PYTHONPATH=${PYTHONPATH}:/opt/monai/tools
+ENV PYTHONPAHT=${PYTHONPATH}:/opt/monai
 ENV USERNAME="monai-docker-dev"
 
-RUN ["chmod", "+x", "/opt/monai/docker-entrypoint.sh"]
-ENTRYPOINT [ "/bin/bash", "/opt/monai/docker-entrypoint.sh" ]
+RUN ["chmod", "+x", "/docker-entrypoint.sh"]
+ENTRYPOINT [ "/bin/bash", "/docker-entrypoint.sh" ]
 CMD ["Docker"]

@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.4
+#       jupytext_version: 1.14.1
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -111,6 +111,15 @@ data_transform = Compose(
         Resized(keys=["image"], spatial_size=(32, 40, 32)),
     ]
 )
+
+
+# %%
+# set up a loader
+
+def resample_to_size(in_subject, desired_size):
+    # need to first figure out the right spacing
+        
+    
 
 # %%
 train_ds = DecathlonDataset(
