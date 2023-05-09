@@ -31,8 +31,10 @@ RUN pip install -r requirements-dev.txt
 ENV PATH=${PATH}:/opt/tools
 ENV PATH=${PATH}:/opt/monai/tools
 ENV PYTHONPATH=${PYTHONPATH}:/opt/monai/tools
-ENV PYTHONPAHT=${PYTHONPATH}:/opt/monai
+ENV PYTHONPATH=${PYTHONPATH}:/opt/monai
 ENV USERNAME="monai-docker-dev"
+
+WORKDIR /opt/monai
 
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 ENTRYPOINT [ "/bin/bash", "/docker-entrypoint.sh" ]
